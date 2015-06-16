@@ -1,14 +1,15 @@
 <?php
 namespace org\rtens\isolation;
 
+use org\rtens\isolation\qualities\RecursiveFakes;
 use org\rtens\isolation\qualities\Strictness;
 
 interface Library {
 
-    public function strictness(Strictness $strictness);
+    public function strictness(Strictness $quality);
 
-//    public function recursiveFakes();
-//
+    public function recursiveFakes(RecursiveFakes $quality);
+
 //    public function stubExpectMixUp();
 //
 //    public function verifySingleCall();

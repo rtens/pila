@@ -11,12 +11,15 @@ class AssesStrictness extends StaticTestSuite {
         $quality = new Strictness(__CLASS__);
         $quality->assert(new Foo());
         $this->assert($quality->getResult()->getPoints(), 1);
+        $this->assert($quality->getResult()->getMessage(), 'non-strict');
+        $this->assert($quality->getResult()->getPreferred(), 'non-strict');
     }
 
     function fails() {
         $quality = new Strictness(__CLASS__);
         $quality->assert(new AssesStrictness_BadFoo());
         $this->assert($quality->getResult()->getPoints(), -1);
+        $this->assert($quality->getResult()->getMessage(), 'strict');
     }
 }
 

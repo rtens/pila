@@ -18,6 +18,8 @@ class Mockster3 implements Library {
     }
 
     public function recursiveFakes(RecursiveFakes $quality) {
-        $quality->assert((new Mockster(Bar::class))->mock());
+        $mock = (new Mockster(Bar::class))->mock();
+
+        $quality->assert($mock);
     }
 }

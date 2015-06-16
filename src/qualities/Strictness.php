@@ -22,8 +22,9 @@ class Strictness extends Quality {
      * All methods of Foo should be able to be invoked without throwing an exception.
      *
      * @param Foo|mixed $fake
+     * @param null $failure
      */
-    public function assert(Foo $fake) {
+    public function assert(Foo $fake, $failure = null) {
         try {
             $fake->foo();
             $fake->bar();
@@ -32,7 +33,7 @@ class Strictness extends Quality {
 
             $this->pass();
         } catch (\Exception $e) {
-            $this->fail();
+            $this->fail($failure);
         }
     }
 }

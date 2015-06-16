@@ -1,0 +1,22 @@
+{
+  "require": {
+    "rtens/mockster": "dev-master",
+    "phpspec/prophecy": "dev-master",
+    "phpunit/phpunit-mock-objects": "^2.3@dev",
+    "phpunit/phpunit": "dev-master"
+  },
+  "require-dev": {
+    "rtens/scrut": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "org\\rtens\\isolation\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "org\\rtens\\spec\\isolation\\": "spec/"
+    }
+  },
+  "minimum-stability": "dev"
+}

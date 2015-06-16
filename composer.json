@@ -3,7 +3,9 @@
     "rtens/mockster": "dev-master",
     "phpspec/prophecy": "dev-master",
     "phpunit/phpunit-mock-objects": "^2.3@dev",
-    "phpunit/phpunit": "dev-master"
+    "phpunit/phpunit": "dev-master",
+    "watoki/curir": "dev-master",
+    "watoki/tempan": "dev-master"
   },
   "require-dev": {
     "rtens/scrut": "dev-master"

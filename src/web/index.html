@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PHP Isolation Library Assessment</title>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="page-header">
+        <span>PILA</span>
+        <small>PHP Isolation Library Assessment</small>
+    </h1>
+
+    <div class="well">
+        <p class="lead">
+            Roy Osherove's list of
+            <a href="http://osherove.com/blog/2013/11/23/fifteen-things-i-look-for-in-an-isolation-framework.html"
+               target="_blank">Fifteen things I look for in an Isolation framework</a>
+            which I came across while reading <a href="http://artofunittesting.com/" target="_blank">The Art of Unit
+            Testing</a>
+            seemed like a good checklist for to assess isolation frameworks/libraries so I wrote this little app to do
+            so dynamically.
+        </p>
+
+        <p class="lead">
+            If you would like to add another library of feel like one of the library wasn't assessed correctly, please
+            don't hesitate to <a href="http://rtens.org">contact me</a> or create a pull request.
+        </p>
+
+        <p><a class="btn btn-lg btn-primary" href="http://github.com/rtens/pila" role="button" target="_blank">Check out
+            the project on github</a></p>
+
+        <p>
+            Full disclosure: I'm the author of <a href="http://github.com/rtens/mockster" target="_blank">mockster</a>
+            so it might seem suspicious that it happens to achieve the highest score. Of course part of this assessment
+            was to show why I wrote mockster and to start a discussion about the quality of isolation libraries.
+        </p>
+    </div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Quality</th>
+            <th>Desired</th>
+            <th property="library">
+                <span property="name">Mockster</span>
+                <small><a property="link" href="http://github.com/rtens/pila">code</a></small>
+            </th>
+            <th property="library">Prophet <small><a href="http://github.com/rtens/pila">code</a></small></th>
+            <th property="library">PhpUnit <small><a href="http://github.com/rtens/pila">code</a></small></th>
+        </tr>
+        <tr property="result">
+            <td property="quality" title="Some explanation"><span property="name">Strictness</span></td>
+            <td property="preferred">non-strict</td>
+            <td property="result" class="success"><span property="message">non-strict</span></td>
+            <td property="result" class="danger">strict</td>
+            <td property="result" class="warning">sometimes strict</td>
+        </tr>
+    </table>
+
+    <footer class="footer">
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img
+            alt="Creative Commons License" style="border-width:0"
+            src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a>
+        This work is licensed under a <a
+            rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons
+        Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </footer>
+
+</div>
+
+</body>
+</html>

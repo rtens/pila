@@ -22,6 +22,19 @@ class IndexResource extends \watoki\curir\Container {
      * @return array
      */
     private function assembleLibraries($results) {
+        return array_map(function ($name) {
+            return [
+                'name' => $name,
+                'link' => ['href' => '#']
+            ];
+        }, $this->readLibraries($results));
+    }
+
+    /**
+     * @param $results
+     * @return array
+     */
+    private function readLibraries($results) {
         return array_values(array_unique(array_map(function (Result $result) {
             return $result->getLibrary();
         }, $results)));
@@ -32,7 +45,7 @@ class IndexResource extends \watoki\curir\Container {
      * @return array
      */
     private function assembleResults($results) {
-        $libraries = $this->assembleLibraries($results);
+        $libraries = $this->readLibraries($results);
 
         $qualityResults = [];
 

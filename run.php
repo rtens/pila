@@ -1,6 +1,6 @@
 <?php
 
-use org\rtens\isolation\cli\Runner;
+use org\rtens\isolation\Runner;
 
 require_once __DIR__ . '/vendor/autoload.php';
 

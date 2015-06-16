@@ -1,7 +1,5 @@
 <?php
-namespace org\rtens\isolation\cli;
-
-use org\rtens\isolation\Quality;
+namespace org\rtens\isolation;
 
 class Runner {
 

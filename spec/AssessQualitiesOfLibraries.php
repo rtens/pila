@@ -1,7 +1,7 @@
 <?php
 namespace spec\org\rtens\isolation;
 
-use org\rtens\isolation\cli\Runner;
+use org\rtens\isolation\Runner;
 use org\rtens\isolation\Quality;
 use org\rtens\isolation\Result;
 use rtens\scrut\tests\statics\StaticTestSuite;

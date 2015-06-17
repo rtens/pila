@@ -19,6 +19,10 @@ class FakeInjection extends Quality {
         return 'Are fakes automatically injected as constructor arguments or properties?';
     }
 
+    protected function maxPoints() {
+        return 3;
+    }
+
     /**
      * @param Bas|mixed $fake
      */

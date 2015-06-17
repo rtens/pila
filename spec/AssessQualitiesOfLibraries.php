@@ -41,13 +41,14 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
         $this->assert($results[0]->getPreferred(), 'preferred thing');
     }
 
-    function defaultResultIsNeutral() {
+    function defaultResultIsNotAssessed() {
         $this->givenTheLibrary_Assessing('DefaultIsNeutral', '');
 
         $results = $this->runWithFolder('folder');
 
         $this->assert->size($results, 1);
         $this->assert($results[0]->getPoints(), 0);
+        $this->assert($results[0]->getMaxPoints(), 0);
         $this->assert($results[0]->getMessage(), 'not assessed');
     }
 
@@ -57,7 +58,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
         $results = $this->runWithFolder('folder');
 
         $this->assert->size($results, 1);
-        $this->assert($results[0]->getPoints(), 1);
+        $this->assert($results[0]->getPoints(), 10);
         $this->assert($results[0]->getMessage(), 'preferred thing');
     }
 
@@ -67,17 +68,17 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
         $results = $this->runWithFolder('folder');
 
         $this->assert->size($results, 1);
-        $this->assert($results[0]->getPoints(), 1);
+        $this->assert($results[0]->getPoints(), 10);
         $this->assert($results[0]->getMessage(), 'some message');
     }
 
     function neutralResult() {
-        $this->givenTheLibrary_Assessing('Neutral', '$quality->neutral("some message");');
+        $this->givenTheLibrary_Assessing('Neutral', '$quality->partial(.8, "some message");');
 
         $results = $this->runWithFolder('folder');
 
         $this->assert->size($results, 1);
-        $this->assert($results[0]->getPoints(), 0);
+        $this->assert($results[0]->getPoints(), 8);
         $this->assert($results[0]->getMessage(), 'some message');
     }
 
@@ -87,7 +88,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
         $results = $this->runWithFolder('folder');
 
         $this->assert->size($results, 1);
-        $this->assert($results[0]->getPoints(), -1);
+        $this->assert($results[0]->getPoints(), 0);
         $this->assert($results[0]->getMessage(), 'bad thing');
     }
 
@@ -97,7 +98,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
         $results = $this->runWithFolder('folder');
 
         $this->assert->size($results, 1);
-        $this->assert($results[0]->getPoints(), -1);
+        $this->assert($results[0]->getPoints(), 0);
         $this->assert($results[0]->getMessage(), 'some message');
     }
 
@@ -157,6 +158,10 @@ class AssessQualitiesOfLibraries_Quality extends Quality {
 
     protected function description() {
         return 'some description';
+    }
+
+    protected function maxPoints() {
+        return 10;
     }
 }
 

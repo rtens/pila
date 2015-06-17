@@ -20,7 +20,7 @@ class AssessRecursiveFakes extends StaticTestSuite {
     function fails() {
         $quality = new RecursiveFakes(new AssessRecursiveFakes_Library());
         $quality->assert(new Bar());
-        $this->assert($quality->getResult()->getPoints(), -1);
+        $this->assert($quality->getResult()->getPoints(), 0);
         $this->assert($quality->getResult()->getMessage(), 'no');
     }
 }

@@ -45,7 +45,7 @@
 
     <table class="table table-bordered">
         <tr>
-            <th>Quality</th>
+            <th>Quality (weight)</th>
             <th>Desired</th>
             <th property="library">
                 <span property="name">Mockster</span>
@@ -73,11 +73,11 @@
             </th>
         </tr>
         <tr property="result">
-            <td property="quality" title="Some explanation"><span property="name">Strictness</span></td>
+            <td property="quality" title="Some explanation"><span property="name">Strictness</span> (<span property="maxScore">3</span>)</td>
             <td property="preferred">non-strict</td>
-            <td property="result" class="success"><span property="message">non-strict</span></td>
-            <td property="result" class="danger">strict</td>
-            <td property="result" class="warning">sometimes strict</td>
+            <td property="result" class="success" title="2/2"><span property="message">non-strict</span></td>
+            <td property="result" class="danger" title="0/2">strict</td>
+            <td property="result" class="warning" title="1/2">sometimes strict</td>
         </tr>
     </table>
 

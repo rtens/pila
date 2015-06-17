@@ -16,4 +16,8 @@ class StubExpectMixUp extends Quality {
     protected function description() {
         return 'Does stubbing a return value feel like setting an expectation?';
     }
+
+    protected function maxPoints() {
+        return 3;
+    }
 }

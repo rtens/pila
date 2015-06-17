@@ -18,6 +18,10 @@ class Strictness extends Quality {
         return "The ability to make non-anticipated method invocation on fakes.";
     }
 
+    protected function maxPoints() {
+        return 2;
+    }
+
     /**
      * All methods of Foo should be able to be invoked without throwing an exception.
      *

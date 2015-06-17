@@ -8,15 +8,17 @@ class Result {
     private $preferred;
     private $library;
     private $points = 0;
+    private $maxPoints = 0;
     private $message = 'Not assessed';
 
-    function __construct(Library $library, $quality, $description, $preferred, $points, $message) {
+    function __construct(Library $library, $quality, $description, $preferred, $points, $maxPoints, $message) {
         $this->library = $library;
         $this->quality = $quality;
         $this->points = $points;
         $this->message = $message;
         $this->description = $description;
         $this->preferred = $preferred;
+        $this->maxPoints = $maxPoints;
     }
 
     /**
@@ -24,6 +26,13 @@ class Result {
      */
     public function getPoints() {
         return $this->points;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaxPoints() {
+        return $this->maxPoints;
     }
 
     /**

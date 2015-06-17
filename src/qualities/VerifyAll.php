@@ -16,4 +16,8 @@ class VerifyAll extends Quality {
     protected function description() {
         return 'Could you verify all calls if you wanted?';
     }
+
+    protected function maxPoints() {
+        return 1;
+    }
 }

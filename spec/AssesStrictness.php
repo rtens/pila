@@ -19,7 +19,7 @@ class AssesStrictness extends StaticTestSuite {
     function fails() {
         $quality = new Strictness(new AssesStrictness_Library());
         $quality->assert(new AssesStrictness_BadFoo());
-        $this->assert($quality->getResult()->getPoints(), -1);
+        $this->assert($quality->getResult()->getPoints(), 0);
         $this->assert($quality->getResult()->getMessage(), 'strict');
     }
 }

@@ -16,4 +16,8 @@ class VerifyByDefault extends Quality {
     protected function description() {
         return 'Does the library verify by default?';
     }
+
+    protected function maxPoints() {
+        return 1;
+    }
 }

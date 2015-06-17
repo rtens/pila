@@ -16,4 +16,8 @@ class LoggerStub extends Quality {
     protected function description() {
         return 'How easily can you create a stub logger that simulates an exception, and a mock service that gets a message containing string if the logger throws?';
     }
+
+    protected function maxPoints() {
+        return 8;
+    }
 }

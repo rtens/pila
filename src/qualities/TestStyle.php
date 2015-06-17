@@ -16,4 +16,8 @@ class TestStyle extends Quality {
     protected function description() {
         return 'What is the test style? record replay? arrange-assert-act? arrange-act-assert?';
     }
+
+    protected function maxPoints() {
+        return 4;
+    }
 }

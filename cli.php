@@ -12,6 +12,7 @@ if (!$results) {
 $accessors = [
     'Library' => 'getLibraryName',
     'Quality' => 'getQuality',
+    'Weight' => 'getMaxPoints',
     'Points' => 'getPoints',
     'Message' => 'getMessage'
 ];
@@ -19,17 +20,21 @@ $accessors = [
 $width = [
     'Library' => 12,
     'Quality' => 20,
+    'Weight' => 6,
     'Points' => 6,
     'Message' => 60
 ];
 
 $scores = [];
+$maxScore = [];
 
 foreach ($results as $result) {
     if (!array_key_exists($result->getLibraryName(), $scores)) {
         $scores[$result->getLibraryName()] = 0;
+        $maxScore[$result->getLibraryName()] = 0;
     }
     $scores[$result->getLibraryName()] += $result->getPoints();
+    $maxScore[$result->getLibraryName()] += $result->getMaxPoints();
 }
 krsort($scores);
 
@@ -38,7 +43,7 @@ print('High score list' . PHP_EOL);
 print('~~~~~~~~~~~~~~~' . PHP_EOL . PHP_EOL);
 
 foreach ($scores as $library => $score) {
-    printf('%-12s %2d' . PHP_EOL, $library, $score);
+    printf('%-12s %3d / %d' . PHP_EOL, $library, $score, $maxScore[$library]);
 }
 
 print(PHP_EOL);

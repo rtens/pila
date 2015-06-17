@@ -16,4 +16,8 @@ class LoggerMock extends Quality {
     protected function description() {
         return 'How easily can you create a mock logger that expects a string containing X at least once?';
     }
+
+    protected function maxPoints() {
+        return 6;
+    }
 }

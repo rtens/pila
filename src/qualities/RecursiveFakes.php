@@ -20,6 +20,10 @@ class RecursiveFakes extends Quality {
         return 'Fake methods should be default return fakes according to their return type hints, recursively.';
     }
 
+    protected function maxPoints() {
+        return 1;
+    }
+
     /**
      * @param Bar|mixed $bar
      */

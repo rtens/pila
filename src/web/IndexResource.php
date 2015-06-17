@@ -64,6 +64,7 @@ class IndexResource extends \watoki\curir\Container {
                     'quality' => [
                         'name' => $result->getQuality(),
                         'title' => $result->getDescription(),
+                        'maxScore' => $result->getMaxPoints()
                     ],
                     'preferred' => $result->getPreferred(),
                     'result' => []
@@ -71,8 +72,9 @@ class IndexResource extends \watoki\curir\Container {
             }
 
             $qualityResults[$key]['result'][array_search($result->getLibrary(), $libraries)] = [
-                'class' => $result->getPoints() > 0 ? 'success' : ($result->getPoints() < 0 ? 'danger' : 'warning'),
-                'message' => $result->getMessage()
+                'class' => $result->getPoints() == $result->getMaxPoints() ? ($result->getPoints() ? 'success' : 'warning') : 'danger',
+                'message' => $result->getMessage(),
+                'title' => $result->getPoints() . '/' . $result->getMaxPoints()
             ];
         }
 

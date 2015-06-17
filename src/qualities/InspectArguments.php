@@ -16,4 +16,8 @@ class InspectArguments extends Quality {
     protected function description() {
         return 'How simple are the matchers for expected parameters to write?';
     }
+
+    protected function maxPoints() {
+        return 6;
+    }
 }

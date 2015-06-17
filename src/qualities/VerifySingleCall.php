@@ -16,4 +16,8 @@ class VerifySingleCall extends Quality {
     protected function description() {
         return 'When you verify - do you have to verify all or can you verify only a single specific call?';
     }
+
+    protected function maxPoints() {
+        return 3;
+    }
 }

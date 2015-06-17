@@ -37,13 +37,15 @@ class IndexResource extends \watoki\curir\Container {
     }
 
     /**
-     * @param $results
+     * @param Result[] $results
      * @return array|Library[]
      */
     private function readLibraries($results) {
-        return array_values(array_unique(array_map(function (Result $result) {
-            return $result->getLibrary();
-        }, $results), SORT_REGULAR));
+        $libraries = [];
+        foreach ($results as $result) {
+            $libraries[$result->getLibraryName()] = $result->getLibrary();
+        }
+        return array_values($libraries);
     }
 
     /**

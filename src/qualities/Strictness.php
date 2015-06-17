@@ -26,7 +26,7 @@ class Strictness extends Quality {
      */
     public function assert(Foo $fake, $failure = null) {
         try {
-            $fake->foo();
+            $fake->baa();
             $fake->bar();
             $fake->bas("one");
             $fake->bas("two");

@@ -3,7 +3,7 @@ namespace org\rtens\isolation\classes;
 
 class Foo {
 
-    function foo() {
+    function baa() {
         return null;
     }
 
@@ -12,6 +12,6 @@ class Foo {
     }
 
     function bas($arg) {
-        return null;
+        return $arg;
     }
 }

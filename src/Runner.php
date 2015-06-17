@@ -4,11 +4,9 @@ namespace org\rtens\isolation;
 class Runner {
 
     private $directory;
-    private $baseClass;
 
-    function __construct($directory, $baseClass) {
+    function __construct($directory) {
         $this->directory = $directory;
-        $this->baseClass = $baseClass;
     }
 
     /**
@@ -16,20 +14,12 @@ class Runner {
      */
     public function run() {
         $results = [];
-        foreach ($this->findLibraryClasses() as $libraryClass) {
+        foreach ($this->findClassesInLibrariesFolder() as $libraryClass) {
             $results = array_merge($results,
                 $this->assessLibrary(new $libraryClass)
             );
         }
         return $results;
-    }
-
-    private function findLibraryClasses() {
-        $newClasses = $this->findClassesInLibrariesFolder();
-
-        return array_values(array_filter($newClasses, function ($class) {
-            return is_subclass_of($class, $this->baseClass);
-        }));
     }
 
     private function findClassesInLibrariesFolder() {
@@ -42,8 +32,10 @@ class Runner {
 
     private function assessLibrary($library) {
         $results = [];
-        foreach (get_class_methods($this->baseClass) as $method) {
-            $results[] = $this->assessQuality($library, $method);
+        foreach (get_class_methods(get_class($library)) as $method) {
+            if ((new \ReflectionMethod($library, $method))->getParameters()) {
+                $results[] = $this->assessQuality($library, $method);
+            }
         }
         return $results;
     }
@@ -67,6 +59,6 @@ class Runner {
      */
     private function getQualityParameter($library, $method) {
         $qualityClass = (new \ReflectionMethod($library, $method))->getParameters()[0]->getClass()->getName();
-        return new $qualityClass(get_class($library));
+        return new $qualityClass($library);
     }
 }

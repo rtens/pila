@@ -3,14 +3,14 @@ namespace org\rtens\isolation;
 
 abstract class Quality {
 
-    /** @var string */
+    /** @var object */
     private $library;
 
     /** @var Result|null */
     private $result;
 
-    public function __construct($libraryClass) {
-        $this->library = $libraryClass;
+    public function __construct(Library $library) {
+        $this->library = $library;
     }
 
     abstract protected function preferred();
@@ -21,10 +21,6 @@ abstract class Quality {
 
     protected function name() {
         return $this->className(get_class($this));
-    }
-
-    private function library() {
-        return $this->className($this->library);
     }
 
     public function pass($message = null) {
@@ -40,7 +36,7 @@ abstract class Quality {
     }
 
     private function result($points, $message) {
-        return new Result($this->library(), $this->name(), $this->description(), $this->preferred(), $points, $message);
+        return new Result($this->library, $this->name(), $this->description(), $this->preferred(), $points, $message);
     }
 
     /**

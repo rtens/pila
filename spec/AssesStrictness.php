@@ -2,13 +2,14 @@
 namespace spec\org\rtens\isolation;
 
 use org\rtens\isolation\classes\Foo;
+use org\rtens\isolation\Library;
 use org\rtens\isolation\qualities\Strictness;
 use rtens\scrut\tests\statics\StaticTestSuite;
 
 class AssesStrictness extends StaticTestSuite {
 
     function passes() {
-        $quality = new Strictness(__CLASS__);
+        $quality = new Strictness(new AssesStrictness_Library());
         $quality->assert(new Foo());
         $this->assert($quality->getResult()->getPoints(), 1);
         $this->assert($quality->getResult()->getMessage(), 'non-strict');
@@ -16,10 +17,19 @@ class AssesStrictness extends StaticTestSuite {
     }
 
     function fails() {
-        $quality = new Strictness(__CLASS__);
+        $quality = new Strictness(new AssesStrictness_Library());
         $quality->assert(new AssesStrictness_BadFoo());
         $this->assert($quality->getResult()->getPoints(), -1);
         $this->assert($quality->getResult()->getMessage(), 'strict');
+    }
+}
+
+class AssesStrictness_Library implements Library {
+
+    public function name() {
+    }
+
+    public function url() {
     }
 }
 

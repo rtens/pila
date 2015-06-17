@@ -22,22 +22,28 @@ class IndexResource extends \watoki\curir\Container {
      * @return array
      */
     private function assembleLibraries($results) {
-        return array_map(function ($name) {
+        return array_map(function (Library $library) {
             return [
-                'name' => $name,
-                'link' => ['href' => '#']
+                'name' => $library->name(),
+                'code' => ['href' => $this->getGitHubUrl($library)],
+                'url' => ['href' => $library->url()],
             ];
         }, $this->readLibraries($results));
     }
 
+    private function getGitHubUrl(Library $library) {
+        $classPath = substr(get_class($library), strlen('org/rtens/isolation/'));
+        return 'https://github.com/rtens/pila/blob/master/src/' . $classPath . '.php';
+    }
+
     /**
      * @param $results
-     * @return array
+     * @return array|Library[]
      */
     private function readLibraries($results) {
         return array_values(array_unique(array_map(function (Result $result) {
             return $result->getLibrary();
-        }, $results)));
+        }, $results), SORT_REGULAR));
     }
 
     /**

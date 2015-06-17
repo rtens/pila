@@ -1,6 +1,7 @@
 <?php
 namespace spec\org\rtens\isolation;
 
+use org\rtens\isolation\Library;
 use org\rtens\isolation\Runner;
 use org\rtens\isolation\Quality;
 use org\rtens\isolation\Result;
@@ -16,46 +17,21 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
 
     protected function before() {
         $this->map = new AssessQualitiesOfLibraries_ResultMapper();
-
-        if (!class_exists('SomeQuality')) {
-            eval('class Foo {
-                function bar(SomeQuality $quality) {}
-            }');
-
-            eval('class SomeQuality extends ' . Quality::class . '{
-                protected function preferred() {
-                    return "preferred thing";
-                }
-
-                protected function failed() {
-                    return "bad thing";
-                }
-
-                protected function description() {
-                    return "some description";
-                }
-            }');
-        }
     }
 
-
     function findAllLibrariesInFolder() {
-        $this->files->givenTheFile_Containing('folder/SomeFile.php', '<?php
-            class AFoo extends Foo {}');
-        $this->files->givenTheFile_Containing('folder/OtherFile.php', '<?php
-            class AnotherFoo extends Foo {}
-            class NotAFoo {}');
+        $this->givenTheLibrary_Assessing_In('AFoo', '', 'folder/SomeFile.php');
+        $this->givenTheLibrary_Assessing_In('AnotherFoo', '', 'folder/OtherFile.php');
 
         $results = $this->runWithFolder('folder');
 
         $this->assert->size($results, 2);
-        $this->assertContains($results, $this->map->getLibrary(), 'a foo');
-        $this->assertContains($results, $this->map->getLibrary(), 'another foo');
+        $this->assertContains($results, $this->map->getLibraryName(), 'AFoo library');
+        $this->assertContains($results, $this->map->getLibraryName(), 'AnotherFoo library');
     }
 
     function collectResultsWithInformationAboutQuality() {
-        $this->files->givenTheFile_Containing('folder/SomeFile.php', '<?php
-            class SomeFoo extends Foo {}');
+        $this->givenTheLibrary_Assessing('SomeFoo', '');
 
         $results = $this->runWithFolder('folder');
 
@@ -66,8 +42,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
     }
 
     function defaultResultIsNeutral() {
-        $this->files->givenTheFile_Containing('folder/SomeFile.php', '<?php
-            class DefaultIsNeutral extends Foo {}');
+        $this->givenTheLibrary_Assessing('DefaultIsNeutral', '');
 
         $results = $this->runWithFolder('folder');
 
@@ -77,12 +52,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
     }
 
     function positiveResultWithDefaultMessage() {
-        $this->files->givenTheFile_Containing('folder/SomeFile.php', '<?php
-            class PositiveDefault extends Foo {
-                function bar(SomeQuality $quality) {
-                    $quality->pass();
-                }
-            }');
+        $this->givenTheLibrary_Assessing('PositiveDefault', '$quality->pass();');
 
         $results = $this->runWithFolder('folder');
 
@@ -92,12 +62,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
     }
 
     function positiveResultWithCustomMessage() {
-        $this->files->givenTheFile_Containing('folder/SomeFile.php', '<?php
-            class PositiveCustom extends Foo {
-                function bar(SomeQuality $quality) {
-                    $quality->pass("some message");
-                }
-            }');
+        $this->givenTheLibrary_Assessing('PositiveCustom', '$quality->pass("some message");');
 
         $results = $this->runWithFolder('folder');
 
@@ -107,12 +72,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
     }
 
     function neutralResult() {
-        $this->files->givenTheFile_Containing('folder/SomeFile.php', '<?php
-            class Neutral extends Foo {
-                function bar(SomeQuality $quality) {
-                    $quality->neutral("some message");
-                }
-            }');
+        $this->givenTheLibrary_Assessing('Neutral', '$quality->neutral("some message");');
 
         $results = $this->runWithFolder('folder');
 
@@ -122,12 +82,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
     }
 
     function negativeResultWithDefaultMessage() {
-        $this->files->givenTheFile_Containing('folder/SomeFile.php', '<?php
-            class NegativeDefault extends Foo {
-                function bar(SomeQuality $quality) {
-                    $quality->fail();
-                }
-            }');
+        $this->givenTheLibrary_Assessing('NegativeDefault', '$quality->fail();');
 
         $results = $this->runWithFolder('folder');
 
@@ -137,12 +92,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
     }
 
     function negativeResultWithCustomMessage() {
-        $this->files->givenTheFile_Containing('folder/SomeFile.php', '<?php
-            class NegativeCustom extends Foo {
-                function bar(SomeQuality $quality) {
-                    $quality->fail("some message");
-                }
-            }');
+        $this->givenTheLibrary_Assessing('NegativeCustom', '$quality->fail("some message");');
 
         $results = $this->runWithFolder('folder');
 
@@ -151,12 +101,34 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
         $this->assert($results[0]->getMessage(), 'some message');
     }
 
+    private function givenTheLibrary_Assessing($name, $code) {
+        $this->givenTheLibrary_Assessing_In($name, $code, 'folder/SomeFile.php');
+    }
+
+    private function givenTheLibrary_Assessing_In($name, $code, $file) {
+        $this->files->givenTheFile_Containing($file, '<?php
+            class ' . $name . ' implements ' . Library::class . ' {
+
+                public function name() {
+                    return "' . $name . ' library";
+                }
+
+                public function url() {
+                    return "http://example.com";
+                }
+
+                function someQuality(' . AssessQualitiesOfLibraries_Quality::class . ' $quality) {
+                    ' . $code . '
+                }
+            }');
+    }
+
     /**
      * @param $folder
      * @return array|\org\rtens\isolation\Result[]
      */
     private function runWithFolder($folder) {
-        $runner = new Runner($this->files->fullPath($folder), 'Foo');
+        $runner = new Runner($this->files->fullPath($folder));
         $results = $runner->run();
         return $results;
     }
@@ -166,6 +138,25 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
             return $item->$mapper();
         }, $haystack);
         $this->assert->contains($mapped, $needle);
+    }
+}
+
+class AssessQualitiesOfLibraries_Quality extends Quality {
+
+    protected function name() {
+        return 'some quality';
+    }
+
+    protected function preferred() {
+        return 'preferred thing';
+    }
+
+    protected function failed() {
+        return 'bad thing';
+    }
+
+    protected function description() {
+        return 'some description';
     }
 }
 

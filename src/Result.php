@@ -10,7 +10,7 @@ class Result {
     private $points = 0;
     private $message = 'Not assessed';
 
-    function __construct($library, $quality, $description, $preferred, $points, $message) {
+    function __construct(Library $library, $quality, $description, $preferred, $points, $message) {
         $this->library = $library;
         $this->quality = $quality;
         $this->points = $points;
@@ -34,7 +34,7 @@ class Result {
     }
 
     /**
-     * @return string
+     * @return Library
      */
     public function getLibrary() {
         return $this->library;
@@ -59,6 +59,13 @@ class Result {
      */
     public function getPreferred() {
         return $this->preferred;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLibraryName() {
+        return $this->library->name();
     }
 
 }

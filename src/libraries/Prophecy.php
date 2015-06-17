@@ -1,19 +1,28 @@
 <?php
 namespace org\rtens\isolation\libraries;
 
+use org\rtens\isolation\Assessment;
 use org\rtens\isolation\classes\Bar;
 use org\rtens\isolation\classes\Foo;
 use org\rtens\isolation\Library;
 use org\rtens\isolation\qualities\RecursiveFakes;
 use org\rtens\isolation\qualities\Strictness;
 use Prophecy\Prophecy\ObjectProphecy;
+use Prophecy\Prophet;
 
-class Prophet implements Library {
+class Prophecy implements Library, Assessment {
+
+    public function name() {
+        return "Prophecy";
+    }
+
+    public function url() {
+        return 'http://github.com/phpspec/prophecy';
+    }
 
     public function strictness(Strictness $quality) {
         /** @var Foo|ObjectProphecy $foo */
-        $foo = (new \Prophecy\Prophet())
-            ->prophesize(Foo::class);
+        $foo = (new Prophet())->prophesize(Foo::class);
 
         /** @var Foo $fake */
         $fake = $foo->reveal();
@@ -30,9 +39,7 @@ class Prophet implements Library {
     }
 
     public function recursiveFakes(RecursiveFakes $quality) {
-        $fake = (new \Prophecy\Prophet())
-            ->prophesize(Bar::class)
-            ->reveal();
+        $fake = (new Prophet())->prophesize(Bar::class)->reveal();
 
         $quality->assert($fake);
     }

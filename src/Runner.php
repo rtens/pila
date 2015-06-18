@@ -47,9 +47,22 @@ class Runner {
      */
     private function assessQuality($library, $method) {
         $quality = $this->getQualityParameter($library, $method);
-        $library->$method($quality);
+
+        try {
+            set_error_handler([$this, 'handleError'], E_ALL);
+            $library->$method($quality);
+            restore_error_handler();
+        } catch (\Exception $e) {
+            $quality->fail($e->getMessage());
+        }
+
         $result = $quality->getResult();
         return $result;
+    }
+
+    public function handleError($code, $message, $file, $line) {
+        if (error_reporting() == 0) return;
+        throw new \RuntimeException($message . ' in ' . $file . ':' . $line, $code);
     }
 
     /**

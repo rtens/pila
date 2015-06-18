@@ -102,6 +102,26 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
         $this->assert($results[0]->getMessage(), 'some message');
     }
 
+    function exceptionResultsInNegativeResult() {
+        $this->givenTheLibrary_Assessing('WithAnException', 'throw new \Exception("Oh no");');
+
+        $results = $this->runWithFolder('folder');
+
+        $this->assert->size($results, 1);
+        $this->assert($results[0]->getPoints(), 0);
+        $this->assert($results[0]->getMessage(), 'Oh no');
+    }
+
+    function warningResultsInNegativeResult() {
+        $this->givenTheLibrary_Assessing('WithAWarning', 'assert(false, "Too bad");');
+
+        $results = $this->runWithFolder('folder');
+
+        $this->assert->size($results, 1);
+        $this->assert($results[0]->getPoints(), 0);
+        $this->assert->contains($results[0]->getMessage(), 'assert(): Too bad failed in');
+    }
+
     private function givenTheLibrary_Assessing($name, $code) {
         $this->givenTheLibrary_Assessing_In($name, $code, 'folder/SomeFile.php');
     }

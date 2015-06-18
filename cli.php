@@ -22,7 +22,7 @@ $width = [
     'Quality' => 20,
     'Weight' => 6,
     'Points' => 6,
-    'Message' => 60
+    'Message' => 100
 ];
 
 $scores = [];

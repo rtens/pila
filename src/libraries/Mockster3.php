@@ -21,7 +21,9 @@ use org\rtens\isolation\qualities\VerifyAll;
 use org\rtens\isolation\qualities\VerifyByDefault;
 use org\rtens\isolation\qualities\VerifySingleCall;
 use rtens\mockster\arguments\Argument;
+use rtens\mockster\MockProvider;
 use rtens\mockster\Mockster;
+use watoki\factory\Factory;
 
 class Mockster3 implements Library, Assessment {
 
@@ -88,7 +90,7 @@ class Mockster3 implements Library, Assessment {
     }
 
     public function fakeInjection(FakeInjection $quality) {
-        $mock = (new Mockster(Bas::class))->uut();
+        $mock = (new Mockster(Bas::class, $this->createFactory()))->uut();
 
         $quality->assert($mock);
     }
@@ -146,7 +148,7 @@ class Mockster3 implements Library, Assessment {
 
     public function loggerStub(LoggerStub $quality) {
         /** @var Mockster|Service $service */
-        $service = new Mockster(Service::class);
+        $service = new Mockster(Service::class, $this->createFactory());
 
         Mockster::stub($service->logger->log(Argument::any()))->will()->throw_(new \InvalidArgumentException("Oh no"));
 
@@ -157,5 +159,19 @@ class Mockster3 implements Library, Assessment {
         assert(Mockster::stub($service->mailer->mail("Logger failed: Oh no"))->has()->beenCalled());
 
         $quality->pass();
+    }
+
+    /**
+     * @return Factory
+     */
+    private function createFactory() {
+        $factory = new Factory();
+        $provider = new MockProvider($factory);
+        $factory->setProvider('StdClass', $provider);
+
+        $provider->setParameterFilter(function () {
+            return true;
+        });
+        return $factory;
     }
 }

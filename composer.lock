@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "dd3f9883feca3b2bea77993b23df2097",
@@ -564,12 +564,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "53481227cfb3be61c3be85a1e8f6327586108184"
+                "reference": "5b41e3f6891d2a3dece6019c82d9c2a3138027b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/53481227cfb3be61c3be85a1e8f6327586108184",
-                "reference": "53481227cfb3be61c3be85a1e8f6327586108184",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5b41e3f6891d2a3dece6019c82d9c2a3138027b6",
+                "reference": "5b41e3f6891d2a3dece6019c82d9c2a3138027b6",
                 "shasum": ""
             },
             "require": {
@@ -628,7 +628,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-06-15 07:51:29"
+            "time": "2015-06-18 13:17:50"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -691,12 +691,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rtens/mockster.git",
-                "reference": "4cc203dac418761fb00199c0beb24d0b540baa03"
+                "reference": "52b4dfaf5cca678a0fd5a6d807d9856fb83d4662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rtens/mockster/zipball/4cc203dac418761fb00199c0beb24d0b540baa03",
-                "reference": "4cc203dac418761fb00199c0beb24d0b540baa03",
+                "url": "https://api.github.com/repos/rtens/mockster/zipball/52b4dfaf5cca678a0fd5a6d807d9856fb83d4662",
+                "reference": "52b4dfaf5cca678a0fd5a6d807d9856fb83d4662",
                 "shasum": ""
             },
             "require": {
@@ -735,7 +735,7 @@
                 "mocking",
                 "unit testing"
             ],
-            "time": "2015-06-10 10:23:06"
+            "time": "2015-06-18 16:21:59"
         },
         {
             "name": "sebastian/comparator",
@@ -1359,12 +1359,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/watoki/factory.git",
-                "reference": "18ebfb2080367ad570fdc414dc62af0aa8d01582"
+                "reference": "aee58142a09df8f50b50a6bef8b36cd71610cbf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/watoki/factory/zipball/18ebfb2080367ad570fdc414dc62af0aa8d01582",
-                "reference": "18ebfb2080367ad570fdc414dc62af0aa8d01582",
+                "url": "https://api.github.com/repos/watoki/factory/zipball/aee58142a09df8f50b50a6bef8b36cd71610cbf1",
+                "reference": "aee58142a09df8f50b50a6bef8b36cd71610cbf1",
                 "shasum": ""
             },
             "require": {
@@ -1398,7 +1398,7 @@
                 "dependency injection",
                 "watoki"
             ],
-            "time": "2015-05-12 13:31:07"
+            "time": "2015-06-18 14:28:00"
         },
         {
             "name": "watoki/reflect",

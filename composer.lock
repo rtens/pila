@@ -590,21 +590,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rtens/mockster.git",
-                "reference": "557b5c6aa1a86c5fafe7297ae0595098d58409fa"
+                "reference": "e36747519123991671f18ca12352794a416d676d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rtens/mockster/zipball/557b5c6aa1a86c5fafe7297ae0595098d58409fa",
-                "reference": "557b5c6aa1a86c5fafe7297ae0595098d58409fa",
+                "url": "https://api.github.com/repos/rtens/mockster/zipball/e36747519123991671f18ca12352794a416d676d",
+                "reference": "e36747519123991671f18ca12352794a416d676d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6",
-                "watoki/factory": ">=0.4",
-                "watoki/reflect": ">=0.2"
+                "watoki/factory": "0.5",
+                "watoki/reflect": "0.3"
             },
             "require-dev": {
-                "rtens/scrut": "*"
+                "rtens/scrut": "1.0"
             },
             "type": "library",
             "autoload": {
@@ -634,7 +634,7 @@
                 "mocking",
                 "unit testing"
             ],
-            "time": "2015-06-18 17:41:20"
+            "time": "2015-06-18 18:50:45"
         },
         {
             "name": "sebastian/comparator",

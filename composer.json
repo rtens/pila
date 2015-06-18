@@ -1,14 +1,14 @@
 {
   "require": {
-    "rtens/mockster": "dev-master",
-    "phpspec/prophecy": "dev-master",
-    "phpunit/phpunit-mock-objects": "^2.3@dev",
-    "phpunit/phpunit": "dev-master",
-    "watoki/curir": "dev-master",
-    "watoki/tempan": "dev-master"
+    "rtens/mockster": "^3.0",
+    "phpspec/prophecy": "^1.4",
+    "phpunit/phpunit-mock-objects": "^2.3",
+    "phpunit/phpunit": "^4.7",
+    "watoki/curir": "0.2",
+    "watoki/tempan": "1.0"
   },
   "require-dev": {
-    "rtens/scrut": "dev-master"
+    "rtens/scrut": "1.0"
   },
   "autoload": {
     "psr-4": {
@@ -19,6 +19,5 @@
     "psr-4": {
       "org\\rtens\\spec\\isolation\\": "spec/"
     }
-  },
-  "minimum-stability": "dev"
+  }
 }

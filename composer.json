@@ -4,7 +4,7 @@
     "phpspec/prophecy": "^1.4",
     "phpunit/phpunit-mock-objects": "^2.3",
     "phpunit/phpunit": "^4.7",
-    "watoki/curir": "0.2",
+    "watoki/curir": "0.3",
     "watoki/tempan": "1.0"
   },
   "require-dev": {

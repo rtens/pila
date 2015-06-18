@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e9d996c3e0e2057aeea32a9efc35e546",
+    "hash": "9162bf42d2243e68b46fb39a7fe1d74c",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -1103,27 +1103,27 @@
         },
         {
             "name": "watoki/curir",
-            "version": "v0.2",
+            "version": "v0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/watoki/curir.git",
-                "reference": "83d957cef63675da51fe5cf11a8341af22863009"
+                "reference": "ea800dae598341a938836ad7bc1296164ded5230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/watoki/curir/zipball/83d957cef63675da51fe5cf11a8341af22863009",
-                "reference": "83d957cef63675da51fe5cf11a8341af22863009",
+                "url": "https://api.github.com/repos/watoki/curir/zipball/ea800dae598341a938836ad7bc1296164ded5230",
+                "reference": "ea800dae598341a938836ad7bc1296164ded5230",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
-                "watoki/collections": "*",
-                "watoki/deli": "*",
-                "watoki/factory": "*",
-                "watoki/stores": "*"
+                "watoki/collections": "1.0",
+                "watoki/deli": "0.2",
+                "watoki/factory": "0.5",
+                "watoki/stores": "0.3"
             },
             "require-dev": {
-                "watoki/scrut": "*"
+                "watoki/scrut": "0.3"
             },
             "type": "library",
             "autoload": {
@@ -1151,31 +1151,31 @@
                 "routing",
                 "watoki"
             ],
-            "time": "2014-12-05 10:08:32"
+            "time": "2015-06-18 20:14:34"
         },
         {
             "name": "watoki/deli",
-            "version": "v0.1",
+            "version": "v0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/watoki/deli.git",
-                "reference": "b0b266651d4b64488ec3840c5fbdb3ab06d8d097"
+                "reference": "a806517b8887c739a9d48eba282e1358d8c29cd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/watoki/deli/zipball/b0b266651d4b64488ec3840c5fbdb3ab06d8d097",
-                "reference": "b0b266651d4b64488ec3840c5fbdb3ab06d8d097",
+                "url": "https://api.github.com/repos/watoki/deli/zipball/a806517b8887c739a9d48eba282e1358d8c29cd3",
+                "reference": "a806517b8887c739a9d48eba282e1358d8c29cd3",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
-                "watoki/collections": "*",
-                "watoki/factory": "*",
-                "watoki/reflect": "*",
-                "watoki/stores": "*"
+                "watoki/collections": "1.0",
+                "watoki/factory": "0.5",
+                "watoki/reflect": "0.3",
+                "watoki/stores": "0.3"
             },
             "require-dev": {
-                "watoki/scrut": "*"
+                "watoki/scrut": "0.3"
             },
             "type": "library",
             "autoload": {
@@ -1203,7 +1203,7 @@
                 "routing",
                 "watoki"
             ],
-            "time": "2014-12-05 10:06:01"
+            "time": "2015-06-18 20:12:57"
         },
         {
             "name": "watoki/dom",
@@ -1394,25 +1394,25 @@
         },
         {
             "name": "watoki/stores",
-            "version": "v0.2",
+            "version": "v0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/watoki/stores.git",
-                "reference": "5a7eae76280d6388fa3b67c2e7bb6f8268995aa8"
+                "reference": "ad137aec2a74825a683cb31da5b6fb43e3827e17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/watoki/stores/zipball/5a7eae76280d6388fa3b67c2e7bb6f8268995aa8",
-                "reference": "5a7eae76280d6388fa3b67c2e7bb6f8268995aa8",
+                "url": "https://api.github.com/repos/watoki/stores/zipball/ad137aec2a74825a683cb31da5b6fb43e3827e17",
+                "reference": "ad137aec2a74825a683cb31da5b6fb43e3827e17",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
-                "watoki/collections": "*",
-                "watoki/reflect": "*"
+                "watoki/collections": "1.0",
+                "watoki/reflect": "0.3"
             },
             "require-dev": {
-                "watoki/scrut": "*"
+                "watoki/scrut": "0.3"
             },
             "type": "library",
             "autoload": {
@@ -1441,7 +1441,7 @@
                 "storage",
                 "watoki"
             ],
-            "time": "2014-11-27 08:26:02"
+            "time": "2015-06-18 20:09:05"
         },
         {
             "name": "watoki/tempan",

@@ -181,7 +181,7 @@ class Prophecy implements Library, BaseQualities, AdvancedQualities, EasOfUse {
             assert($call->getArguments()[0]->two == "dos");
         });
 
-        $quality->partial(5 / 6, "only with callback");
+        $quality->partial(3 / 6, "only with callback");
     }
 
     public function loggerMock(LoggerMock $quality) {

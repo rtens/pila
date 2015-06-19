@@ -1,9 +1,9 @@
 <?php
-namespace org\rtens\isolation\web;
+namespace rtens\isolation\web;
 
-use org\rtens\isolation\Library;
-use org\rtens\isolation\Result;
-use org\rtens\isolation\Runner;
+use rtens\isolation\Library;
+use rtens\isolation\Result;
+use rtens\isolation\Runner;
 
 class IndexResource extends \watoki\curir\Container {
 
@@ -18,7 +18,7 @@ class IndexResource extends \watoki\curir\Container {
     }
 
     /**
-     * @param \org\rtens\isolation\Result[] $results
+     * @param \rtens\isolation\Result[] $results
      * @return array
      */
     private function assembleLibraries($results) {
@@ -49,7 +49,7 @@ class IndexResource extends \watoki\curir\Container {
     }
 
     /**
-     * @param \org\rtens\isolation\Result[] $results
+     * @param \rtens\isolation\Result[] $results
      * @return array
      */
     private function assembleResults($results) {

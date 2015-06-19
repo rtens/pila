@@ -12,12 +12,12 @@
   },
   "autoload": {
     "psr-4": {
-      "org\\rtens\\isolation\\": "src/"
+      "rtens\\isolation\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "org\\rtens\\spec\\isolation\\": "spec/"
+      "spec\\rtens\\isolation\\": "spec/"
     }
   }
 }

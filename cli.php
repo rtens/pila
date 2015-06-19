@@ -2,7 +2,7 @@
 
 include __DIR__ . "/vendor/autoload.php";
 
-$results = (new \org\rtens\isolation\Runner(__DIR__ . '/src/libraries'))->run();
+$results = (new \rtens\isolation\Runner(__DIR__ . '/src/libraries'))->run();
 
 if (!$results) {
     echo "No results" . PHP_EOL;

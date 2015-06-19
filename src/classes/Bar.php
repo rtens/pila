@@ -1,5 +1,5 @@
 <?php
-namespace org\rtens\isolation\classes;
+namespace rtens\isolation\classes;
 
 class Bar {
 

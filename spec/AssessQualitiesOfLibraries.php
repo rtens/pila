@@ -1,10 +1,10 @@
 <?php
-namespace spec\org\rtens\isolation;
+namespace spec\rtens\isolation;
 
-use org\rtens\isolation\Library;
-use org\rtens\isolation\Runner;
-use org\rtens\isolation\Quality;
-use org\rtens\isolation\Result;
+use rtens\isolation\Library;
+use rtens\isolation\Runner;
+use rtens\isolation\Quality;
+use rtens\isolation\Result;
 use rtens\scrut\tests\statics\StaticTestSuite;
 
 /**
@@ -146,7 +146,7 @@ class AssessQualitiesOfLibraries extends StaticTestSuite {
 
     /**
      * @param $folder
-     * @return array|\org\rtens\isolation\Result[]
+     * @return array|\rtens\isolation\Result[]
      */
     private function runWithFolder($folder) {
         $runner = new Runner($this->files->fullPath($folder));

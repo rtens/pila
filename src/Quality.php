@@ -1,5 +1,5 @@
 <?php
-namespace org\rtens\isolation;
+namespace rtens\isolation;
 
 abstract class Quality {
 

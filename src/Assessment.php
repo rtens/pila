@@ -1,18 +1,18 @@
 <?php
-namespace org\rtens\isolation;
+namespace rtens\isolation;
 
-use org\rtens\isolation\qualities\FakeInjection;
-use org\rtens\isolation\qualities\InspectArguments;
-use org\rtens\isolation\qualities\LoggerMock;
-use org\rtens\isolation\qualities\LoggerStub;
-use org\rtens\isolation\qualities\RecursiveFakes;
-use org\rtens\isolation\qualities\Strictness;
-use org\rtens\isolation\qualities\StubExpectMixUp;
-use org\rtens\isolation\qualities\TestStyle;
-use org\rtens\isolation\qualities\TypeCompliance;
-use org\rtens\isolation\qualities\VerifyAll;
-use org\rtens\isolation\qualities\VerifyByDefault;
-use org\rtens\isolation\qualities\VerifySingleCall;
+use rtens\isolation\qualities\FakeInjection;
+use rtens\isolation\qualities\InspectArguments;
+use rtens\isolation\qualities\LoggerMock;
+use rtens\isolation\qualities\LoggerStub;
+use rtens\isolation\qualities\RecursiveFakes;
+use rtens\isolation\qualities\Strictness;
+use rtens\isolation\qualities\StubExpectMixUp;
+use rtens\isolation\qualities\TestStyle;
+use rtens\isolation\qualities\TypeCompliance;
+use rtens\isolation\qualities\VerifyAll;
+use rtens\isolation\qualities\VerifyByDefault;
+use rtens\isolation\qualities\VerifySingleCall;
 
 interface Assessment {
 

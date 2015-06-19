@@ -1,9 +1,9 @@
 <?php
-namespace spec\org\rtens\isolation;
+namespace spec\rtens\isolation;
 
-use org\rtens\isolation\classes\Foo;
-use org\rtens\isolation\Library;
-use org\rtens\isolation\qualities\Strictness;
+use rtens\isolation\classes\Foo;
+use rtens\isolation\Library;
+use rtens\isolation\qualities\Strictness;
 use rtens\scrut\tests\statics\StaticTestSuite;
 
 class AssesStrictness extends StaticTestSuite {

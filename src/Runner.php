@@ -1,5 +1,5 @@
 <?php
-namespace org\rtens\isolation;
+namespace rtens\isolation;
 
 class Runner {
 
@@ -10,7 +10,7 @@ class Runner {
     }
 
     /**
-     * @return array|\org\rtens\isolation\Result[]
+     * @return array|\rtens\isolation\Result[]
      */
     public function run() {
         $results = [];
@@ -43,7 +43,7 @@ class Runner {
     /**
      * @param object $library
      * @param string $method
-     * @return \org\rtens\isolation\Result
+     * @return \rtens\isolation\Result
      */
     private function assessQuality($library, $method) {
         $quality = $this->getQualityParameter($library, $method);

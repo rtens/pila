@@ -1,9 +1,9 @@
 <?php
-namespace org\rtens\isolation\qualities;
+namespace rtens\isolation\qualities;
 
-use org\rtens\isolation\classes\Bar;
-use org\rtens\isolation\classes\Foo;
-use org\rtens\isolation\Quality;
+use rtens\isolation\classes\Bar;
+use rtens\isolation\classes\Foo;
+use rtens\isolation\Quality;
 use rtens\scrut\Assert;
 
 class RecursiveFakes extends Quality {

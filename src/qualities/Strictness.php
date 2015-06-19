@@ -1,8 +1,8 @@
 <?php
-namespace org\rtens\isolation\qualities;
+namespace rtens\isolation\qualities;
 
-use org\rtens\isolation\classes\Foo;
-use org\rtens\isolation\Quality;
+use rtens\isolation\classes\Foo;
+use rtens\isolation\Quality;
 
 class Strictness extends Quality {
 

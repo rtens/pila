@@ -1,6 +1,6 @@
 <?php
 
-use org\rtens\isolation\web\IndexResource;
+use rtens\isolation\web\IndexResource;
 use watoki\curir\rendering\adapter\TempanRenderer;
 use watoki\curir\WebDelivery;
 

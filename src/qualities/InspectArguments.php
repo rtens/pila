@@ -1,7 +1,7 @@
 <?php
-namespace org\rtens\isolation\qualities;
+namespace rtens\isolation\qualities;
 
-use org\rtens\isolation\Quality;
+use rtens\isolation\Quality;
 
 class InspectArguments extends Quality {
 

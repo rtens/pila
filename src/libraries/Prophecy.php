@@ -1,22 +1,22 @@
 <?php
-namespace org\rtens\isolation\libraries;
+namespace rtens\isolation\libraries;
 
-use org\rtens\isolation\Assessment;
-use org\rtens\isolation\classes\Bar;
-use org\rtens\isolation\classes\Foo;
-use org\rtens\isolation\Library;
-use org\rtens\isolation\qualities\FakeInjection;
-use org\rtens\isolation\qualities\InspectArguments;
-use org\rtens\isolation\qualities\LoggerMock;
-use org\rtens\isolation\qualities\LoggerStub;
-use org\rtens\isolation\qualities\RecursiveFakes;
-use org\rtens\isolation\qualities\Strictness;
-use org\rtens\isolation\qualities\StubExpectMixUp;
-use org\rtens\isolation\qualities\TestStyle;
-use org\rtens\isolation\qualities\TypeCompliance;
-use org\rtens\isolation\qualities\VerifyAll;
-use org\rtens\isolation\qualities\VerifyByDefault;
-use org\rtens\isolation\qualities\VerifySingleCall;
+use rtens\isolation\Assessment;
+use rtens\isolation\classes\Bar;
+use rtens\isolation\classes\Foo;
+use rtens\isolation\Library;
+use rtens\isolation\qualities\FakeInjection;
+use rtens\isolation\qualities\InspectArguments;
+use rtens\isolation\qualities\LoggerMock;
+use rtens\isolation\qualities\LoggerStub;
+use rtens\isolation\qualities\RecursiveFakes;
+use rtens\isolation\qualities\Strictness;
+use rtens\isolation\qualities\StubExpectMixUp;
+use rtens\isolation\qualities\TestStyle;
+use rtens\isolation\qualities\TypeCompliance;
+use rtens\isolation\qualities\VerifyAll;
+use rtens\isolation\qualities\VerifyByDefault;
+use rtens\isolation\qualities\VerifySingleCall;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophet;
 

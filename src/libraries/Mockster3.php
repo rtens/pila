@@ -1,7 +1,9 @@
 <?php
 namespace rtens\isolation\libraries;
 
-use rtens\isolation\Assessment;
+use rtens\isolation\assessments\AdvancedQualities;
+use rtens\isolation\assessments\BaseQualities;
+use rtens\isolation\assessments\EasOfUse;
 use rtens\isolation\classes\Bar;
 use rtens\isolation\classes\Bas;
 use rtens\isolation\classes\Foo;
@@ -25,7 +27,7 @@ use rtens\mockster\MockProvider;
 use rtens\mockster\Mockster;
 use watoki\factory\Factory;
 
-class Mockster3 implements Library, Assessment {
+class Mockster3 implements Library, BaseQualities, AdvancedQualities, EasOfUse {
 
     public function name() {
         return 'mockster';
@@ -72,7 +74,7 @@ class Mockster3 implements Library, Assessment {
         $mock->baa();
         $mock->baa();
 
-        assert(Mockster::stub($foo->bar())->has()->beenCalled(1));
+        assert(Mockster::stub($foo->bar())->has()->beenCalled());
         assert(!Mockster::stub($foo->baa())->has()->beenCalled(1));
         assert(!Mockster::stub($foo->bas(null))->has()->beenCalled(1));
 
@@ -80,7 +82,7 @@ class Mockster3 implements Library, Assessment {
     }
 
     public function verifyByDefault(VerifyByDefault $quality) {
-        // No verification by default
+        // No way of defining expectations that could be verified
         $quality->pass();
     }
 
@@ -127,7 +129,7 @@ class Mockster3 implements Library, Assessment {
         assert(Mockster::stub($foo->bas(Argument::any()))->has()->inCall(0)->argument("arg")->one == "uno");
         assert(Mockster::stub($foo->bas(Argument::any()))->has()->inCall(0)->argument("arg")->two == "dos");
 
-        $quality->pass();
+        $quality->pass('with spying');
     }
 
     public function loggerMock(LoggerMock $quality) {

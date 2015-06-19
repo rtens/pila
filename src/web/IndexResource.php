@@ -83,7 +83,7 @@ class IndexResource extends \watoki\curir\Container {
 
     private function determineClass(Result $result) {
         if ($result->getMaxPoints() == 0) {
-            return 'warning';
+            return 'active';
         } else if ($result->getPoints() == 0) {
             return 'danger';
         } else if ($result->getPoints() < $result->getMaxPoints()) {

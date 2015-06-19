@@ -72,12 +72,24 @@ class IndexResource extends \watoki\curir\Container {
             }
 
             $qualityResults[$key]['result'][array_search($result->getLibrary(), $libraries)] = [
-                'class' => $result->getPoints() == $result->getMaxPoints() ? ($result->getPoints() ? 'success' : 'warning') : 'danger',
+                'class' => $this->determineClass($result),
                 'message' => $result->getMessage(),
                 'title' => $result->getPoints() . '/' . $result->getMaxPoints()
             ];
         }
 
         return array_values($qualityResults);
+    }
+
+    private function determineClass(Result $result) {
+        if ($result->getMaxPoints() == 0) {
+            return 'warning';
+        } else if ($result->getPoints() == 0) {
+            return 'danger';
+        } else if ($result->getPoints() < $result->getMaxPoints()) {
+            return 'warning';
+        } else {
+            return 'success';
+        }
     }
 }

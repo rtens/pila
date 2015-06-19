@@ -53,7 +53,7 @@ class Runner {
             $library->$method($quality);
             restore_error_handler();
         } catch (\Exception $e) {
-            $quality->fail($e->getMessage());
+            $quality->fail(get_class($e) . ': ' . $e->getMessage());
         }
 
         $result = $quality->getResult();
